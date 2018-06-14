@@ -5,66 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.gamalghanem.myapplication.MainActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/birthdaycard" />
     <TextView
-        android:id="@+id/top_center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:text="Happy birthday my friend"
+        android:textSize="30sp"
+        android:layout_margin="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:text="from Gamal"
+        android:textSize="30sp"
+        android:layout_margin="30dp"
         android:layout_centerHorizontal="true"
-        android:text="Ben"
-        android:textSize="20sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kunal"
-        android:layout_toLeftOf="@id/top_center"
-        android:textSize="20sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kagure"
-        android:layout_alignParentRight="true"
-        android:textSize="20sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Jennie"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/bottom_right"
-        android:textSize="20sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:text="Natalie"
-        android:textSize="20sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Omoju"
-        android:textSize="20sp"
-        android:layout_above="@id/bottom_right"
-        android:layout_alignParentRight="true"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Amy"
-        android:textSize="20sp"
-        android:layout_toLeftOf="@id/bottom_right"
-        android:layout_alignParentBottom="true"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lyla"
-        android:textSize="20sp"
-        android:id="@+id/bottom_Left"
-        android:layout_alignParentBottom="true"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Me"
-        android:textSize="20sp"
-        android:layout_toRightOf="@id/bottom_Left"
         android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
