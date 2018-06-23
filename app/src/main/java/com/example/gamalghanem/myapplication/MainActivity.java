@@ -8,36 +8,90 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    int quantity = 2;
+    int scoreA = 0;
+    int scoreB = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    public void increment(View view){
-        quantity ++;
-        displayOrder();
+    /**
+     * increases team A score by 3
+     * @param view
+     */
+    public void addThreeForA(View view) {
+        scoreA += 3;
+        displayA(scoreA);
     }
 
-    public void decrement(View view) {
-        quantity --;
-        displayOrder();
+    /**
+     * increases team A score by two
+     * @param view
+     */
+    public void addTwoForA(View view) {
+        scoreA += 2;
+        displayA(scoreA);
     }
 
-    public void order(View view) {
-        String priceMessage="Total:     ";
-        priceMessage += NumberFormat.getCurrencyInstance().format(quantity * 5);
-        priceMessage += "\nThank you!";
-        displayPrice(priceMessage);
+    /**
+     * increases team A score by one
+     * @param view
+     */
+    public void addOneForA(View view) {
+        scoreA += 1;
+        displayA(scoreA);
     }
 
-    public void displayOrder() {
-        TextView quantityView = (TextView)findViewById(R.id.quantity);
-        quantityView.setText(""+quantity);
+    /**
+     * changes the score on the screen
+     */
+    public void displayA(int score) {
+        TextView scoreAView = (TextView) findViewById(R.id.scoreA);
+        scoreAView.setText(""+score);
     }
-    public void displayPrice(String message) {
-        TextView priceView = (TextView) findViewById(R.id.price);
-        priceView.setText(message);
+
+
+    /**
+     * increases team B score by 3
+     * @param view
+     */
+    public void addThreeForB(View view) {
+        scoreB += 3;
+        displayB(scoreB);
     }
+
+    /**
+     * increases team A score by two
+     * @param view
+     */
+    public void addTwoForB(View view) {
+        scoreB += 2;
+        displayB(scoreB);
+    }
+
+    /**
+     * increases team A score by one
+     * @param view
+     */
+    public void addOneForB(View view) {
+        scoreB += 1;
+        displayB(scoreB);
+    }
+
+    /**
+     * changes the score on the screen
+     */
+    public void displayB(int score) {
+        TextView scoreBView = (TextView) findViewById(R.id.scoreB);
+        scoreBView.setText(""+score);
+    }
+
+    public void reset(View view) {
+        scoreA = 0;
+        scoreB = 0;
+        displayA(scoreA);
+        displayB(scoreB);
+    }
+
 }
