@@ -4,12 +4,16 @@ import android.icu.text.NumberFormat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    int scoreA = 0;
-    int scoreB = 0;
+    int quantity = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,81 +21,70 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * increases team A score by 3
-     * @param view
+     * increases the quantity by 1 item
      */
-    public void addThreeForA(View view) {
-        scoreA += 3;
-        displayA(scoreA);
+    public void increment(View view) {
+        if (quantity == 100) {
+            Toast.makeText(this, "You cannot have more than 100 coffee", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        quantity ++;
+        displayQuantity(quantity);
     }
 
     /**
-     * increases team A score by two
-     * @param view
+     * decreases the quantity by 1 item
      */
-    public void addTwoForA(View view) {
-        scoreA += 2;
-        displayA(scoreA);
+    public void decrement(View view) {
+        if (quantity == 1) {
+            Toast.makeText(this, "You cannot have less than 1 coffee", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        quantity --;
+        displayQuantity(quantity);
     }
 
     /**
-     * increases team A score by one
-     * @param view
+     * prints the updated quantity of items on the screen
      */
-    public void addOneForA(View view) {
-        scoreA += 1;
-        displayA(scoreA);
+    private void displayQuantity(int q) {
+        TextView quantityTextView = (TextView) findViewById(R.id.quantity);
+        quantityTextView.setText(""+q);
     }
 
     /**
-     * changes the score on the screen
+     *
      */
-    public void displayA(int score) {
-        TextView scoreAView = (TextView) findViewById(R.id.scoreA);
-        scoreAView.setText(""+score);
+    public void order(View view) {
+        EditText inputName = (EditText) findViewById(R.id.nameInput);
+        String name = inputName.getText().toString();
+        CheckBox whippedCreambox = (CheckBox)findViewById(R.id.whippedCream);
+        boolean whippedCream = whippedCreambox.isChecked();
+        CheckBox chocolatebox = (CheckBox)findViewById(R.id.chocolate);
+        boolean chocolate = chocolatebox.isChecked();
+        int price = calculatePrice(whippedCream, chocolate);
+        displayOrderSummery(name, whippedCream, chocolate, price);
     }
 
-
-    /**
-     * increases team B score by 3
-     * @param view
-     */
-    public void addThreeForB(View view) {
-        scoreB += 3;
-        displayB(scoreB);
+    private void displayOrderSummery(String name, boolean whippedCream, boolean chocolate, int total) {
+        String message = "Name: " + name + "\n"
+                +"Add whipped cream? " + whippedCream + "\n"
+                +"Add chocolate? " + chocolate + "\n"
+                +"Quantity: " + quantity + "\n"
+                +"Total: $" + total + "" + "\n"
+                +"Thank You!";
+        TextView orderSummeryView = (TextView) findViewById(R.id.orderSummery);
+        orderSummeryView.setText(message);
     }
 
-    /**
-     * increases team A score by two
-     * @param view
-     */
-    public void addTwoForB(View view) {
-        scoreB += 2;
-        displayB(scoreB);
+    private int calculatePrice(boolean whippedCream, boolean chocolate) {
+        int basePrice = 5;
+        if (whippedCream)
+            basePrice += 1;
+        if (chocolate)
+            basePrice += 2;
+        return quantity * basePrice;
     }
 
-    /**
-     * increases team A score by one
-     * @param view
-     */
-    public void addOneForB(View view) {
-        scoreB += 1;
-        displayB(scoreB);
-    }
-
-    /**
-     * changes the score on the screen
-     */
-    public void displayB(int score) {
-        TextView scoreBView = (TextView) findViewById(R.id.scoreB);
-        scoreBView.setText(""+score);
-    }
-
-    public void reset(View view) {
-        scoreA = 0;
-        scoreB = 0;
-        displayA(scoreA);
-        displayB(scoreB);
-    }
 
 }
