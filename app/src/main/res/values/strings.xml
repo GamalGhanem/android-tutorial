@@ -1,3 +1,16 @@
-<resources>
+<resources xmlns:xleff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">My Application</string>
+    <string name="name">Name</string>
+    <string name="toppings">Toppings</string>
+    <string name="whippedCream">Whipped Cream</string>
+    <string name="chocolate">Chocolate</string>
+    <string name="quantity">Quantity</string>
+    <string name="orderSummery">Order Summery</string>
+    <string name="order">Order</string>
+    <string name="orderSummeryName">Name: <xleff:g name="name" example="Gamal">%s</xleff:g> </string>
+    <string name="orderSummeryWhippedCream">Add Whipped cream? <xleff:g name="addWhippedCream" example="true">%s</xleff:g></string>
+    <string name="orderSummeryChocolate">Add Chocolate? <xleff:g name="addChocolate" example="true">%s</xleff:g></string>
+    <string name="orderSummeryQuantity">Quantity: <xleff:g name="quantity" example="3">%d</xleff:g></string>
+    <string name="orderSummeryTotal">Total: <xleff:g name="total" example="$10">%s</xleff:g></string>
+    <string name="thankYou">Thank You!</string>
 </resources>

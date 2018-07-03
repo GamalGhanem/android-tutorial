@@ -1,6 +1,8 @@
 package com.example.gamalghanem.myapplication;
 
+import android.content.Intent;
 import android.icu.text.NumberFormat;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -56,6 +58,21 @@ public class MainActivity extends AppCompatActivity {
      *
      */
     public void order(View view) {
+        /**
+         *
+         String mailto = "mailto:gamalghanem7@gmail.com" +
+         "?cc=" + "alice@example.com" +
+         "&subject=" + Uri.encode("aaaa") +
+         "&body=" + Uri.encode("message body");
+         Intent intent = new Intent(Intent.ACTION_SENDTO);
+         intent.setData(Uri.parse(mailto)); // only email apps should handle this
+         if (intent.resolveActivity(getPackageManager()) != null) {
+         startActivity(intent);
+         }
+         else
+         Toast.makeText(this, "No apps can do so", Toast.LENGTH_SHORT).show();
+         */
+
         EditText inputName = (EditText) findViewById(R.id.nameInput);
         String name = inputName.getText().toString();
         CheckBox whippedCreambox = (CheckBox)findViewById(R.id.whippedCream);
@@ -64,15 +81,16 @@ public class MainActivity extends AppCompatActivity {
         boolean chocolate = chocolatebox.isChecked();
         int price = calculatePrice(whippedCream, chocolate);
         displayOrderSummery(name, whippedCream, chocolate, price);
+
     }
 
     private void displayOrderSummery(String name, boolean whippedCream, boolean chocolate, int total) {
-        String message = "Name: " + name + "\n"
-                +"Add whipped cream? " + whippedCream + "\n"
-                +"Add chocolate? " + chocolate + "\n"
-                +"Quantity: " + quantity + "\n"
-                +"Total: $" + total + "" + "\n"
-                +"Thank You!";
+        String message = getString(R.string.orderSummeryName, name) + "\n"
+                + getString(R.string.orderSummeryWhippedCream, whippedCream) + "\n"
+                +getString(R.string.orderSummeryChocolate, chocolate) + "\n"
+                +getString(R.string.orderSummeryQuantity, quantity) + "\n"
+                +getString(R.string.orderSummeryTotal, "$"+total) + "" + "\n"
+                +getString(R.string.thankYou);
         TextView orderSummeryView = (TextView) findViewById(R.id.orderSummery);
         orderSummeryView.setText(message);
     }

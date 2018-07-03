@@ -19,22 +19,19 @@
             android:id="@+id/nameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
+            android:hint="@string/name"
             android:inputType="text"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="Toppings"
-            android:textAllCaps="true" />
+            style="@style/header"
+            android:text="@string/toppings" />
 
         <CheckBox
             android:id="@+id/whippedCream"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="24dp"
-            android:text="Whipped Cream"
+            android:text="@string/whippedCream"
             android:textSize="16sp" />
 
         <CheckBox
@@ -42,15 +39,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="24dp"
-            android:text="Chocolate"
+            android:text="@string/chocolate"
             android:textSize="16sp" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Quantity"
-            android:textAllCaps="true" />
+            style="@style/header"
+            android:text="@string/quantity" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -78,11 +72,8 @@
         </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="order summery"
-            android:textAllCaps="true" />
+            style="@style/header"
+            android:text="@string/orderSummery" />
 
         <TextView
             android:id="@+id/orderSummery"
@@ -95,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="order"
-            android:text="ORDER" />
+            android:text="@string/order" />
     </LinearLayout>
 
 </ScrollView>
